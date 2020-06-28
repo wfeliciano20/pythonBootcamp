@@ -9,9 +9,21 @@ a = 10
 print(a)
 
 # Use A to redefine A
-a = a + a
+a = a + 10
 print(a)
 
+# Shortcut for math operations with reassignments
+a += 10
+print(a)
+a *= 2
+
+
+# Checking type
+print(type(a))
+
+a = (1, 2)
+
+print(type(a))
 """
 Variables Naming conventions
 1. Names can't start with a number.
