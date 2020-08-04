@@ -18,7 +18,7 @@ for player in players:
     if matched_numbers > winner_matched_numbers:
         winner = player
 winnings = 100 ** len(winner["numbers"].intersection(lottery_numbers))
-print(winner["name"] + " won " + str(winnings))
+print(f'{winner["name"]} won {winnings}')
 # Then, print out a line such as "Jen won 1000.".
 # The winnings are calculated with the formula:
 # 100 ** len(numbers_matched)
