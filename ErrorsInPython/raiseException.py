@@ -19,3 +19,12 @@ class Garage:
             raise TabError(
                 F'Tried to add a `{car.__class__.__name__}` to the garage, but you can only add `Car` objects.')
         self.cars.append(car)
+
+
+ford = Garage()
+fiesta = Car('Ford', 'Fiesta')
+
+try:
+    ford.add_car('Fiesta')
+except TypeError:
+    print('Your car was not of type Car')
