@@ -35,6 +35,11 @@ def delete_book(name):
 books_file = 'books.txt'
 
 
+def create_book_table():
+    with open(books_file, 'a'):
+        pass
+
+
 def add_book_to_file(name, author):
     with open(books_file, 'a') as file:
         file.write(f'{name},{author},False\n')

@@ -1,4 +1,6 @@
 from utils import database
+from utils import database2 as db2
+from os import path
 
 
 USER_CHOICE = """
@@ -17,10 +19,12 @@ def prompt_add_book():
     name = input("Enter the name of the book: ")
     author = input("Enter the author name ")
     database.add_book_to_file(name, author)
+    db2.add_book(name, author)
 
 
 def list_books():
     books = database.get_all_books_from_file()
+    books = db2.get_all_books()
     for book in books:
         read = 'YES' if book['read'] else 'NO'
         print(f"{book['name']} by {book['author']},read: {read}")
@@ -29,14 +33,24 @@ def list_books():
 def prompt_read_book():
     name = input("Enter the book name: ")
     database.mark_book_as_read_from_file(name)
+    db2.mark_book_as_read(name)
 
 
 def prompt_delete_book():
     name = input("Enter the book name that you want to delete: ")
     database.delete_book_from_file(name)
+    db2.delete_book(name)
 
 
 def menu():
+    if path.exists('books.json'):
+        pass
+    else:
+        db2.create_book_table()
+    if path.exists('books.txt'):
+        pass
+    else:
+        database.create_book_table()
     user_input = input(USER_CHOICE)
     while user_input != 'q':
         if user_input == 'a':
