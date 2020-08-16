@@ -16,7 +16,7 @@ Your choice:
 """
 
 
-def prompt_add_book():
+def prompt_add_book() -> None:
     name = input("Enter the name of the book: ")
     author = input("Enter the author name ")
     #database.add_book_to_file(name, author)
@@ -24,7 +24,7 @@ def prompt_add_book():
     db3.add_book(name, author)
 
 
-def list_books():
+def list_books() -> None:
     #books = database.get_all_books_from_file()
     #books = db2.get_all_books()
     books = db3.get_all_books()
@@ -33,21 +33,21 @@ def list_books():
         print(f"{book['name']} by {book['author']},read: {read}")
 
 
-def prompt_read_book():
+def prompt_read_book() -> None:
     name = input("Enter the book name: ")
     # database.mark_book_as_read_from_file(name)
     # db2.mark_book_as_read(name)
     db3.mark_book_as_read(name)
 
 
-def prompt_delete_book():
+def prompt_delete_book() -> None:
     name = input("Enter the book name that you want to delete: ")
     # database.delete_book_from_file(name)
     # db2.delete_book(name)
     db3.delete_book(name)
 
 
-def menu():
+def menu() -> None:
     if path.exists('data.db'):
         pass
     else:
